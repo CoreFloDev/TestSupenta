@@ -3,11 +3,13 @@ package supenta.florent.testapplication.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  * Created by florent on 27/01/15.
  */
-public class LogModel {
+public class LogModel extends Observable{
 
     // model data to store
 
@@ -28,8 +30,9 @@ public class LogModel {
     private LogModel(){};
 
     // actions available on the log
-    public void addToLog(LogEntry.Type type,String message) {
+    public void addLog(LogEntry.Type type,String message) {
         logs.add(new LogEntry(type,new Date(),message));
+        this.notifyObservers();
     }
 
     public List<LogEntry> getLogs() {
@@ -40,4 +43,7 @@ public class LogModel {
         logs.clear();
     }
 
+    public LogEntry getLastLog() {
+        return logs.get(logs.size()-1);
+    }
 }

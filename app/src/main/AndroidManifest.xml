@@ -24,6 +24,8 @@
                 <data android:scheme="package"/>
             </intent-filter>
         </receiver>
+
+        <service android:name=".service.AppEventService"/>
     </application>
 
 </manifest>

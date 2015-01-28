@@ -20,6 +20,12 @@ public class LogEntry {
     private Date date;
     private String message;
 
+    /**
+     * Store a new event on the log
+     * @param type event type
+     * @param date event date
+     * @param string event message
+     */
     public LogEntry(Type type,Date date,String string) {
         this.type = type;
         this.date = date;
