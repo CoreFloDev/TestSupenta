@@ -18,7 +18,7 @@ public class AppEventReceiver extends BroadcastReceiver{
     @Override
     public void onReceive(Context context, Intent intent) {
         if(intent != null) {
-            if(AppEventService.IS_RUNNING) {
+            if(AppEventService.isRunning()) {
                 // log events to the model
                 String packageName = intent.getDataString();
                 switch (intent.getAction()) {

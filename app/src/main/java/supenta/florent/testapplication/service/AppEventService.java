@@ -16,7 +16,7 @@ import supenta.florent.testapplication.R;
  */
 public class AppEventService extends Service {
 
-    public static boolean IS_RUNNING = false;
+    private static boolean IS_RUNNING = false;
 
     private NotificationManager mNM;
     private int NOTIFICATION = R.string.app_event_service_started;
@@ -72,6 +72,10 @@ public class AppEventService extends Service {
 
         // Send the notification.
         mNM.notify(NOTIFICATION, notification);
+    }
+
+    public static boolean isRunning() {
+        return IS_RUNNING;
     }
 
 }
