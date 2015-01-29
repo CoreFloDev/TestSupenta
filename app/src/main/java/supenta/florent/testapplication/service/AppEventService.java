@@ -19,7 +19,7 @@ public class AppEventService extends Service {
     private static boolean IS_RUNNING = false;
 
     private NotificationManager mNM;
-    private int NOTIFICATION = R.string.app_event_service_started;
+    private final int NOTIFICATION = R.string.app_event_service_started;
 
     @Override
     public IBinder onBind(Intent intent) {

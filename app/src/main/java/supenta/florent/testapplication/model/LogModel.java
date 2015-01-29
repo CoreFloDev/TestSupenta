@@ -3,17 +3,15 @@ package supenta.florent.testapplication.model;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
 
 /**
  * Created by florent on 27/01/15.
  */
-public class LogModel extends Observable{
+public class LogModel {
 
     // model data to store
 
-    private List<LogEntry> logs = new ArrayList();
+    private List<LogEntry> logs;
 
 
     // singleton of the model
@@ -27,12 +25,13 @@ public class LogModel extends Observable{
         return instance;
     }
 
-    private LogModel(){};
+    private LogModel(){
+        this.logs = new ArrayList();
+    }
 
     // actions available on the log
     public void addLog(LogEntry.Type type,String message) {
         logs.add(new LogEntry(type,new Date(),message));
-        this.notifyObservers();
     }
 
     public List<LogEntry> getLogs() {
